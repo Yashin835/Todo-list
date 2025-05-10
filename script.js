@@ -1,27 +1,29 @@
-const Input = document.getElementById("input-box");
-const List_Container = document.getElementById("List-container");
-const Removebutton = document.querySelector(".List-container li button")
+const taskInput = document.querySelector("#taskInput");
+const addButton = document.querySelector("#Add");
+const taskList = document.querySelector("#Task-List");
 
-function Add() {
-    if (Input.value === "") {
-        alert("You need to add task first");
-    } else {
-        let list = document.createElement("li");
-        list.textContent = Input.value;
-        List_Container.appendChild(list);
-        const delteBtn = document.createElement("button")
-        delteBtn.textContent = "Delete";
-        list.appendChild(delteBtn);
-        delteBtn.onclick = function(){
-            list.remove();
-        }
-        list.onclick = function(){
-            list.classList.toggle("checked")
-        }
-       
-    };
-} 
+addButton.addEventListener("click", () => {
+    let Tasktext = taskInput.ariaValueMax.trim()
+    if (Tasktext === " ") {
+        return
+    }
+    createTask(Tasktext)
+    taskInput.value = "  ";
+})
 
+function createTask(text) {
+    let li = document.createElement("li")
+    let button = document.createElement("button")
+    taskList.appendChild(li).innerText = text
+    li.appendChild(button).innerText = "DELETE"
+    li.addEventListener("click", () => {
 
+        li.classList.toggle("checked")
 
+    })
 
+    button.addEventListener("click", () => {
+        li.remove()
+    })
+
+}
