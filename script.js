@@ -1,14 +1,14 @@
-const taskInput = document.querySelector("#taskInput").value;
+const taskInput = document.querySelector("#taskInput");
 const addButton = document.querySelector("#Add");
 const taskList = document.querySelector("#Task-List");
 
 addButton.addEventListener("click", () => {
-    let Tasktext = taskInput.trim()
-    if (Tasktext === " ") {
+    let Tasktext = taskInput.value.trim()
+    if (Tasktext === "") {
         return
     }
     createTask(Tasktext)
-    taskInput.value = "  ";
+    taskInput.value = "";
 })
 
 function createTask(text) {
@@ -28,3 +28,4 @@ function createTask(text) {
 
 
 }
+
