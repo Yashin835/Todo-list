@@ -1,9 +1,9 @@
-const taskInput = document.querySelector("#taskInput");
+const taskInput = document.querySelector("#taskInput").value;
 const addButton = document.querySelector("#Add");
 const taskList = document.querySelector("#Task-List");
 
 addButton.addEventListener("click", () => {
-    let Tasktext = taskInput.ariaValueMax.trim()
+    let Tasktext = taskInput.trim()
     if (Tasktext === " ") {
         return
     }
@@ -25,5 +25,6 @@ function createTask(text) {
     button.addEventListener("click", () => {
         li.remove()
     })
+
 
 }
